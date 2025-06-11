@@ -21,5 +21,53 @@ async function sendMessage() {
     const deploymentId = "";
     const apiVersion = "";
  
-    const url = ``
+    const url = `${endpoint}/openai/deployments/${deploymentId}/chat/completions?api-version=${apiVersion}`
+
+    const data = {
+        messages: [{role: "user", content: userMessage}],
+        max_tokens:100,
+        temperature: 0.2,
+    }
+
+    const headers = {
+        "Content-Type": "application/json",
+        "api-key": apiKey,
+    }
+
+    try{
+
+        const response = await fetch(url, {
+            method: "Post",
+            headers: headers,
+            body: JSON.stringify(data)
+        });
+
+        if(response.ok){
+            const result = await response.json()
+            const botMessage = result.choices[0].message.content;
+            
+            const botDiv = document.createElement("div");
+            botDiv.className = "bot-message message";
+            botDiv.textContent = botMessage;
+            chatBox.appendChild(botDiv);
+
+            chatBox.scrollTop = chatBox.scrollHeight;
+        } else {
+            console.error("Erro na requisição", response.status, response.statusText);
+
+            const botDiv = document.createElement("div");
+            botDiv.className = "bot-message message";
+            botDiv.textContent = "Erro na se comunicar com o serviço";
+            chatBox.appendChild(botDiv);
+        }
+
+    }catch(error){
+
+        console.error("Error", error)
+
+        const botDiv = document.createElement("div");
+        botDiv.className = "bot-message message";
+        botDiv.textContent = "Erro ao se comunicar com o serviço";
+        chatBox.appendChild(botDiv);
+    }
 }
