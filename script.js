@@ -17,7 +17,7 @@ async function sendMessage() {
     chatBox.scrollTop = chatBox.scrollHeight;
 
     const endpoint = "https://lucasbaptista37005-resource.openai.azure.com";
-    const apiKey = "CLwwWHq0zNgw6VM17G1djeIwUGjxVGJOHebdmHTyuHQ6EOvl9HqRJQQJ99BFACHYHv6XJ3w3AAAAACOGpqpn";
+    const apiKey = "";
     const deploymentId = "gpt-4o";
     const apiVersion = "2025-01-01-preview";
  
