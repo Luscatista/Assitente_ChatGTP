@@ -20,5 +20,6 @@ async function sendMessage() {
     const apiKey = "";
     const deploymentId = "";
     const apiVersion = "";
-    
+ 
+    const url = ``
 }
