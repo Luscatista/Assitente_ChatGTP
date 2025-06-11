@@ -15,4 +15,10 @@ async function sendMessage() {
     userInput.value = "";
 
     chatBox.scrollTop = chatBox.scrollHeight;
+
+    const endpoint = "";
+    const apiKey = "";
+    const deploymentId = "";
+    const apiVersion = "";
+    
 }
