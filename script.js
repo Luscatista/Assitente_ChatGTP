@@ -16,10 +16,10 @@ async function sendMessage() {
 
     chatBox.scrollTop = chatBox.scrollHeight;
 
-    const endpoint = "";
+    const endpoint = "https://lucasbaptista37005-resource.openai.azure.com";
     const apiKey = "";
-    const deploymentId = "";
-    const apiVersion = "";
+    const deploymentId = "gpt-4o";
+    const apiVersion = "2025-01-01-preview";
  
     const url = `${endpoint}/openai/deployments/${deploymentId}/chat/completions?api-version=${apiVersion}`
 
